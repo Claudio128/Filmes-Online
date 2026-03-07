@@ -15,8 +15,16 @@ body {
 header {
   background-color: #333;
   color: #fff;
-  padding: 20px;
   text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  padding: 20px 20px 0 20px;
+}
+
+nav {
+  padding: 0 20px 20px 20px;
 }
 
 nav ul {
@@ -24,13 +32,27 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1000;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 main {
@@ -67,9 +89,64 @@ section img {
   flex-shrink: 0;
 }
 
+section div {
+  display: flex;
+  flex-direction: column;
+}
+
+section p {
+  margin-bottom: 0;
+}
+
 h2 {
   margin-bottom: 10px;
   color: #444;
+}
+
+.watch-btn {
+  display: inline-block;
+  background-color: #e50914;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.watch-btn:hover {
+  background-color: #c20812;
+}
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.whatsapp-btn:hover {
+  background-color: #20ba5a;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.whatsapp-btn:active {
+  transform: scale(0.95);
 }
 
 footer {
@@ -82,11 +159,49 @@ footer {
   bottom: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
+/* Responsive adjustments para celular */
+@media (max-width: 800px) {
+  header {
+    position: relative;
+    padding-bottom: 0;
+  }
+
+  header h1 {
+    padding: 20px 20px 20px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #555;
+  }
+
+  nav.active {
+    display: block;
+  }
+
   nav ul {
     flex-direction: column;
-    gap: 10px;
+    gap: 0;
+    margin: 0;
+  }
+
+  nav li {
+    border-bottom: 1px solid #555;
+  }
+
+  nav a {
+    display: block;
+    padding: 15px 20px;
+  }
+
+  nav a:hover {
+    background-color: #555;
   }
 
   main {
@@ -103,6 +218,10 @@ footer {
   section img {
     width: 80%;
     max-width: 150px;
+  }
+
+  .watch-btn {
+    align-self: center;
   }
 
   footer {
